@@ -1,11 +1,11 @@
 import React, { useState } from "react"
 import Lolly from "../components/Lolly"
 import Header from "../components/Header"
-// import { navigate } from "gatsby"
+import { navigate } from "gatsby"
 import { useMutation, gql } from "@apollo/client"
 import { useFormik } from "formik"
 import * as Yup from "yup"
-// import shortid from "shortid"
+import shortid from "shortid"
 
 const createLollyMutation = gql`
   mutation createLolly(
@@ -15,7 +15,7 @@ const createLollyMutation = gql`
     $flavorTop: String!
     $flavorMid: String!
     $flavorBot: String!
-    # $lollyPath: String!
+    $lollyPath: String!
   ) {
     createLolly(
       recipientName: $recipientName
@@ -24,10 +24,10 @@ const createLollyMutation = gql`
       flavorTop: $flavorTop
       flavorMid: $flavorMid
       flavorBot: $flavorBot
-      # lollyPath: $lollyPath
+      lollyPath: $lollyPath
     ) {
       message
-      # lollyPath
+      lollyPath
     }
   }
 `
@@ -53,7 +53,7 @@ export default function CreateNew() {
       message: Yup.string().required("Required"),
     }),
     onSubmit: values => {
-      // const id = shortid.generate()
+      const id = shortid.generate()
       console.log("Clicked!!")
       console.log(values)
       const submitLollyForm = async () => {
@@ -65,14 +65,14 @@ export default function CreateNew() {
             flavorTop: colorTop,
             flavorMid: colorMid,
             flavorBot: colorBot,
-            // lollyPath: id,
+            lollyPath: id,
           },
         })
       }
 
       submitLollyForm()
 
-      // navigate(`/lollies/${id}`)
+      navigate(`/lollies/${id}`)
     },
   })
 

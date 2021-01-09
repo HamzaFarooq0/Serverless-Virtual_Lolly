@@ -1,4 +1,4 @@
-/* import React from "react"
+import React from "react"
 import Lolly from "./lolly"
 import { graphql } from "gatsby"
 import Header from "./header"
@@ -27,10 +27,9 @@ export default function DynamicLollyPage({ data }) {
         mainHeadingText="Kuch Meetha Hojaye?"
         secondaryHeadingText="You recieved a lolly, dont eat it alone !"
       />
-      <h5 className="sharableLinkContainer">Your sharable link: </h5>{" "}
+      <h5 className="sharableLinkContainer">Your sharable link: </h5>
       <span className="sharableLink">
-        {" "}
-        {`https://sharelolly.netlify.app/lollies/${data.LOLLIES.getLollyByPath.lollyPath}`}
+        {`https://heuristic-haibt-910939.netlify.app/lollies/${data.LOLLIES.getLollyByPath.lollyPath}`}
       </span>
       <div className="recievedContentContainer">
         <Lolly
@@ -48,4 +47,4 @@ export default function DynamicLollyPage({ data }) {
       </div>
     </div>
   )
-} */
+}

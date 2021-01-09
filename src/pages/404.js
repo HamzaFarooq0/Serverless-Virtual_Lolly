@@ -1,12 +1,4 @@
-import React from 'react';
-
-const ErrorPage = () => {
-  return <h1>Error Page </h1>;
-};
-
-export default ErrorPage;
-
-/* import React from "react"
+import React from "react"
 import Lolly from "../components/lolly"
 import Header from "../components/header"
 import { useQuery, gql } from "@apollo/client"
@@ -68,4 +60,3 @@ export default function NotFound({ location }) {
     </div>
   )
 }
- */

@@ -8,8 +8,6 @@ const Lolly = ({ lollyTop, lollyMid, lollyBot }) => {
 			height="400px"
 			viewBox="0 0 163 431"
 			version="1.1"
-			// xmlns="http://www.w3.org/2000/svg"
-			// xmlnsXlink="http://www.w3.org/1999/xlink"
 		>
 			<defs>
 				<path

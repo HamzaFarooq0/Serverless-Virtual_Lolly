@@ -13,7 +13,7 @@ var client = new faunadb.Client({
 const typeDefs = gql`
   type Query {
     getAllLollies: [Lolly]!
-    # getLollyByPath(lollyPath: String!): Lolly
+    getLollyByPath(lollyPath: String!): Lolly
   }
   type Lolly {
     recipientName: String!
@@ -22,7 +22,7 @@ const typeDefs = gql`
     flavorTop: String!
     flavorMid: String!
     flavorBot: String!
-    # lollyPath: String!
+    lollyPath: String!
   }
   type Mutation {
     createLolly(
@@ -32,7 +32,7 @@ const typeDefs = gql`
       flavorTop: String!
       flavorMid: String!
       flavorBot: String!
-      # lollyPath: String!
+      lollyPath: String!
     ): Lolly
   }
 `
@@ -55,40 +55,40 @@ const resolvers = {
           flavorMid: d.data.flavorMid,
           flavorBot: d.data.flavorBot,
           message: d.data.message,
-          // lollyPath: d.data.lollyPath,
+          lollyPath: d.data.lollyPath,
         }
       })
     },
 
-  //   getLollyByPath: async (_, args) => {
-  //     try {
-  //       var result = await client.query(
-  //         q.Get(q.Match(q.Index("all_lollys"), args.lollyPath))
-  //       )
+    getLollyByPath: async (_, args) => {
+      try {
+        var result = await client.query(
+          q.Get(q.Match(q.Index("all_lollys"), args.lollyPath))
+        )
 
-  //       return result.data
-  //     } catch (e) {
-  //       return e.toString()
-  //     }
-  //   },
+        return result.data
+      } catch (e) {
+        return e.toString()
+      }
+    },
   },
 
   Mutation: {
-    createLolly: async (_, args) => {
+    createLolly: async (root, args) => {
       const result = await client.query(
         q.Create(q.Collection("lollys"), {
           data: args,
         })
       )
 
-    //   axios
-    //     .post("https://api.netlify.com/build_hooks/5f9b08201c44a833a923d4b4")
-    //     .then(function (response) {
-    //       console.log(response)
-    //     })
-    //     .catch(function (error) {
-    //       console.error(error)
-    //     })
+      axios
+        .post("https://api.netlify.com/build_hooks/5ff9e5f7eb91b75abc28dfd2")
+        .then(function (response) {
+          console.log(response)
+        })
+        .catch(function (error) {
+          console.error(error)
+        })
 
       console.log(result)
       return result.data
