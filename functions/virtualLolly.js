@@ -2,11 +2,12 @@ const { ApolloServer, gql } = require("apollo-server-lambda")
 
 const faunadb = require("faunadb")
 const axios = require("axios")
+require('dotenv').config();
 
 const q = faunadb.query
 
 var client = new faunadb.Client({
-  secret: "fnAD5MqQrdACB9dQ1KIGSHWDc6hdEVRDhV8St8ua",
+  secret: process.env.FAUNADB_ADMIN_SECRET,
 })
 
 const typeDefs = gql`
@@ -41,7 +42,7 @@ const resolvers = {
     getAllLollies: async () => {
       var result = await client.query(
         q.Map(
-          q.Paginate(q.Match(q.Index("allLollies"))),
+          q.Paginate(q.Match(q.Index("all_lollys"))),
           q.Lambda(x => q.Get(x))
         )
       )
@@ -62,7 +63,7 @@ const resolvers = {
     getLollyByPath: async (_, args) => {
       try {
         var result = await client.query(
-          q.Get(q.Match(q.Index("Lolly_by_path"), args.lollyPath))
+          q.Get(q.Match(q.Index("all_lollys"), args.lollyPath))
         )
 
         return result.data
@@ -75,7 +76,7 @@ const resolvers = {
   Mutation: {
     createLolly: async (root, args) => {
       const result = await client.query(
-        q.Create(q.Collection("Lollies"), {
+        q.Create(q.Collection("lollys"), {
           data: args,
         })
       )
