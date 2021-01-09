@@ -8,8 +8,8 @@ const Lolly = ({ lollyTop, lollyMid, lollyBot }) => {
 			height="400px"
 			viewBox="0 0 163 431"
 			version="1.1"
-			xmlns="http://www.w3.org/2000/svg"
-			xmlnsXlink="http://www.w3.org/1999/xlink"
+			// xmlns="http://www.w3.org/2000/svg"
+			// xmlnsXlink="http://www.w3.org/1999/xlink"
 		>
 			<defs>
 				<path
@@ -34,11 +34,11 @@ const Lolly = ({ lollyTop, lollyMid, lollyBot }) => {
 						/>
 					</g>
 					<mask id="mask-2" fill="white">
-						<use xlinkHref="#path-1" />
+						<use href="#path-1" />
 					</mask>
 
                     {/* lollyBot layer of Lolly */}
-					<use className="lollylollyBot" fill={lollyBot} fillRule="nonzero" xlinkHref="#path-1" />
+					<use className="lollylollyBot" fill={lollyBot} fillRule="nonzero" href="#path-1" />
 					
                     {/* lollyTop layer of Lolly */}
                     <rect
@@ -74,9 +74,9 @@ const Lolly = ({ lollyTop, lollyMid, lollyBot }) => {
 						mask="url(#mask-2)"
 					/>
 					<mask id="mask-4" fill="white">
-						<use xlinkHref="#path-3" />
+						<use href="#path-3" />
 					</mask>
-					<use id="shine" fill="#FFFFFF" fillRule="nonzero" opacity="0.113420759" xlinkHref="#path-3" />
+					<use id="shine" fill="#FFFFFF" fillRule="nonzero" opacity="0.113420759" href="#path-3" />
 					<g
 						id="glint"
 						opacity="0.600144159"

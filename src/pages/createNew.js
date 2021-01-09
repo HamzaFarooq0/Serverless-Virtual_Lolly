@@ -1,8 +1,8 @@
-import React, { useState, useRef } from "react"
+import React, { useState } from "react"
 import Lolly from "../components/Lolly"
 import Header from "../components/Header"
-import { navigate } from "gatsby"
-import { useQuery, useMutation, gql } from "@apollo/client"
+// import { navigate } from "gatsby"
+import { useMutation, gql } from "@apollo/client"
 import { useFormik } from "formik"
 import * as Yup from "yup"
 // import shortid from "shortid"
@@ -57,7 +57,7 @@ export default function CreateNew() {
       console.log("Clicked!!")
       console.log(values)
       const submitLollyForm = async () => {
-        const result = await createLolly({
+        /* const result = */ await createLolly({
           variables: {
             recipientName: values.recName,
             sendersName: values.sendersName,
@@ -90,7 +90,7 @@ export default function CreateNew() {
       <div className="editorRoot">
         <div className="LollyCreaterColorContainer">
           <Lolly
-            style="lollipopEditor"
+            className="lollipopEditor"
             lollyTop={colorTop}
             lollyBot={colorBot}
             lollyMid={colorMid}

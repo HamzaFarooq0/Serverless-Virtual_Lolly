@@ -17,11 +17,11 @@ const Home = () => {
 			</div>
 
 			<div className="displaylolly-container">
-				<Lolly top={'#C22671'} middle={'#D92A3A'} bottom={'#D51020'} />
-				<Lolly top={'#97e665'} middle={'#8ccb4c'} bottom={'#a8d838'} />
-				<Lolly top={'#cd2753'} middle={'#d5cfd1'} bottom={'#5ba3da'} />
-				<Lolly top={'#feefd6'} middle={'#b65ae4'} bottom={'#c116c1'} />
-				<Lolly top={'#ed265b'} middle={'#f77249'} bottom={'#a8d838'} />
+				<Lolly lollyTop={'#C22671'} lollyMid={'#D92A3A'} lollyBot={'#D51020'} />
+				<Lolly lollyTop={'#97e665'} lollyMid={'#8ccb4c'} lollyBot={'#a8d838'} />
+				<Lolly lollyTop={'#cd2753'} lollyMid={'#d5cfd1'} lollyBot={'#5ba3da'} />
+				<Lolly lollyTop={'#feefd6'} lollyMid={'#b65ae4'} lollyBot={'#c116c1'} />
+				<Lolly lollyTop={'#ed265b'} lollyMid={'#f77249'} lollyBot={'#a8d838'} />
 			</div>
 
 			<div className="homebtn-div">
