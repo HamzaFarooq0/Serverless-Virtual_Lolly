@@ -1,4 +1,4 @@
-import React from "react"
+/* import React from "react"
 import Lolly from "../components/lolly"
 import Header from "../components/header"
 import { useQuery, gql } from "@apollo/client"
@@ -60,3 +60,4 @@ export default function NotFound({ location }) {
     </div>
   )
 }
+ */

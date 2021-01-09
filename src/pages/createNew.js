@@ -1,33 +1,33 @@
 import React, { useState, useRef } from "react"
-import Lolly from "../components/lolly"
-import Header from "../components/header"
+import Lolly from "../components/Lolly"
+import Header from "../components/Header"
 import { navigate } from "gatsby"
 import { useQuery, useMutation, gql } from "@apollo/client"
 import { useFormik } from "formik"
 import * as Yup from "yup"
-import shortid from "shortid"
+// import shortid from "shortid"
 
 const createLollyMutation = gql`
-  mutation createlolly(
+  mutation createLolly(
     $recipientName: String!
     $sendersName: String!
     $message: String!
     $flavorTop: String!
     $flavorMid: String!
     $flavorBot: String!
-    $lollyPath: String!
+    # $lollyPath: String!
   ) {
-    createlolly(
+    createLolly(
       recipientName: $recipientName
       sendersName: $sendersName
       message: $message
       flavorTop: $flavorTop
       flavorMid: $flavorMid
       flavorBot: $flavorBot
-      lollyPath: $lollyPath
+      # lollyPath: $lollyPath
     ) {
       message
-      lollyPath
+      # lollyPath
     }
   }
 `
@@ -53,10 +53,11 @@ export default function CreateNew() {
       message: Yup.string().required("Required"),
     }),
     onSubmit: values => {
-      const id = shortid.generate()
-
+      // const id = shortid.generate()
+      console.log("Clicked!!")
+      console.log(values)
       const submitLollyForm = async () => {
-        const result = await createlolly({
+        const result = await createLolly({
           variables: {
             recipientName: values.recName,
             sendersName: values.sendersName,
@@ -64,25 +65,27 @@ export default function CreateNew() {
             flavorTop: colorTop,
             flavorMid: colorMid,
             flavorBot: colorBot,
-            lollyPath: id,
+            // lollyPath: id,
           },
         })
       }
 
       submitLollyForm()
 
-      navigate(`/lollies/${id}`)
+      // navigate(`/lollies/${id}`)
     },
   })
 
-  const [createlolly] = useMutation(createLollyMutation)
+  const [createLolly] = useMutation(createLollyMutation)
 
   return (
     <div>
       <Header
-        mainHeadingText="Kuch Meetha Hojaye?"
-        secondaryHeadingText="Add Some Toppings, Add Some Love..."
-      />
+					head="Virtual Lolly"
+					head_class="heading"
+					para="because we all know someone who deserve some sugar!"
+					para_class="sub-heading"
+				/>
 
       <div className="editorRoot">
         <div className="LollyCreaterColorContainer">
@@ -154,7 +157,7 @@ export default function CreateNew() {
           />
 
           <label className="formLabel" htmlFor="msg">
-            Message:{" "}
+            Message:
           </label>
           <div className="formErrors">
             {formik.errors.message && formik.touched.message
@@ -172,8 +175,7 @@ export default function CreateNew() {
           />
 
           <label className="formLabel" htmlFor="Recname">
-            {" "}
-            From:{" "}
+            From:
           </label>
           <div className="formErrors">
             {formik.errors.sendersName && formik.touched.sendersName

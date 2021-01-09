@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Lolly = ({ top, middle, bottom }) => {
+const Lolly = ({ lollyTop, lollyMid, lollyBot }) => {
 	return (
 		<svg
 			className="lollipop"
@@ -37,13 +37,13 @@ const Lolly = ({ top, middle, bottom }) => {
 						<use xlinkHref="#path-1" />
 					</mask>
 
-                    {/* Bottom layer of Lolly */}
-					<use className="lollyBottom" fill={bottom} fillRule="nonzero" xlinkHref="#path-1" />
+                    {/* lollyBot layer of Lolly */}
+					<use className="lollylollyBot" fill={lollyBot} fillRule="nonzero" xlinkHref="#path-1" />
 					
-                    {/* Top layer of Lolly */}
+                    {/* lollyTop layer of Lolly */}
                     <rect
-						className="lollyTop"
-						fill={top}
+						className="lollylollyTop"
+						fill={lollyTop}
 						fillRule="nonzero"
 						mask="url(#mask-2)"
 						x={-25}
@@ -52,10 +52,10 @@ const Lolly = ({ top, middle, bottom }) => {
 						height={134}
 					/>
 					
-                    {/* Middle layer of Lolly */}
+                    {/* lollyMid layer of Lolly */}
                     <rect
-						className="lollyMiddle"
-						fill={middle}
+						className="lollylollyMid"
+						fill={lollyMid}
 						fillRule="nonzero"
 						mask="url(#mask-2)"
 						x={-29}

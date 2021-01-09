@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+/* import React, { useRef, useState } from 'react';
 import { Link } from 'gatsby';
 import Header from '../components/Header';
 import { Grid, Button } from '@material-ui/core';
@@ -48,7 +48,7 @@ const CreateLolly = () => {
 
 	return (
 		<div className="homepage-container">
-			{/* Header File */}
+		
 			<div>
 				<Link to="/">
 					<Header
@@ -64,10 +64,10 @@ const CreateLolly = () => {
 				<Grid container spacing={3}>
 					<Grid item xs={12} sm={6}>
 						<div className="lollyContainer">
-							{/* Lolly Component */}
+							
 							<Lolly top={color_1} middle={color_2} bottom={color_3} />
 
-							{/* Color input */}
+							
 							<div className="colorInputs">
 								<label htmlFor="top" className="colorPickerLabel">
 									<input
@@ -130,3 +130,4 @@ const CreateLolly = () => {
 };
 
 export default CreateLolly;
+ */

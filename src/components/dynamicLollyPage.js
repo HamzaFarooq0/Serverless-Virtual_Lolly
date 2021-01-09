@@ -1,4 +1,4 @@
-import React from "react"
+/* import React from "react"
 import Lolly from "./lolly"
 import { graphql } from "gatsby"
 import Header from "./header"
@@ -48,4 +48,4 @@ export default function DynamicLollyPage({ data }) {
       </div>
     </div>
   )
-}
+} */
